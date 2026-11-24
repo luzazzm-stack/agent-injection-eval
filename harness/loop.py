@@ -48,8 +48,8 @@ def _chat(client, model, messages, tools, retries=5):
             raise
 
 
-def run_episode(base_url, api_key, model, log_path, max_steps=MAX_STEPS):
-    system, user, tools, seed = load_scenario()
+def run_episode(base_url, api_key, model, log_path, max_steps=MAX_STEPS, variant=None):
+    system, user, tools, seed = load_scenario(variant)
     env = MockEnv(seed)
     client = OpenAI(base_url=base_url, api_key=api_key, timeout=120, max_retries=0)
     messages = [{"role": "system", "content": system},
@@ -61,7 +61,7 @@ def run_episode(base_url, api_key, model, log_path, max_steps=MAX_STEPS):
         f.flush()
 
     with open(log_path, "w", encoding="utf-8") as f:
-        log(f, {"type": "start", "model": model, "task": user})
+        log(f, {"type": "start", "model": model, "task": user, "variant": variant})
         try:
             for step in range(1, max_steps + 1):
                 steps = step
