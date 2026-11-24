@@ -1,0 +1,7 @@
+{
+  "provider": {
+    "gemini-free": {"options": {"baseURL": "https://generativelanguage.googleapis.com/v1beta/openai", "apiKey": "YOUR_KEY"}},
+    "groq-free":   {"options": {"baseURL": "https://api.groq.com/openai/v1", "apiKey": "YOUR_KEY"}},
+    "nvidia-free": {"options": {"baseURL": "https://integrate.api.nvidia.com/v1", "apiKey": "YOUR_KEY"}}
+  }
+}

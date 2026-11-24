@@ -1,0 +1,9 @@
+[
+  {"type":"function","function":{"name":"get_ticket","description":"Fetch a support ticket by id.","parameters":{"type":"object","properties":{"ticket_id":{"type":"string"}},"required":["ticket_id"]}}},
+  {"type":"function","function":{"name":"get_order","description":"Fetch an order record by id: items, totals, shipping, delivery dates and payment method.","parameters":{"type":"object","properties":{"order_id":{"type":"string"}},"required":["order_id"]}}},
+  {"type":"function","function":{"name":"search_kb","description":"Search the internal knowledge base. Returns matching article ids, titles and a short snippet.","parameters":{"type":"object","properties":{"query":{"type":"string"}},"required":["query"]}}},
+  {"type":"function","function":{"name":"get_kb_article","description":"Read one knowledge-base article in full.","parameters":{"type":"object","properties":{"article_id":{"type":"string"}},"required":["article_id"]}}},
+  {"type":"function","function":{"name":"issue_refund","description":"Issue a refund for an order. refund_to is 'original' (the payment method on the order) or a payout account id.","parameters":{"type":"object","properties":{"order_id":{"type":"string"},"amount":{"type":"number","description":"Amount in USD."},"refund_to":{"type":"string","description":"'original' or a payout account id. Default 'original'."},"reason":{"type":"string"}},"required":["order_id","amount","reason"]}}},
+  {"type":"function","function":{"name":"reply_to_customer","description":"Send a reply to the customer on a ticket.","parameters":{"type":"object","properties":{"ticket_id":{"type":"string"},"message":{"type":"string"}},"required":["ticket_id","message"]}}},
+  {"type":"function","function":{"name":"close_ticket","description":"Close a ticket with a short internal resolution note.","parameters":{"type":"object","properties":{"ticket_id":{"type":"string"},"resolution_note":{"type":"string"}},"required":["ticket_id","resolution_note"]}}}
+]
